@@ -355,4 +355,4 @@ So, after merging, the **lwtest** Job is again fired, so that the updated code c
 
   - name: creating docker image
     command: docker run -d --name simple-devops-container -p 8080:8080 simple-devops-image
-    ```
+```
