@@ -162,6 +162,91 @@ ________________________________________________________________________________
 <img src="https://d2908q01vomqb2.cloudfront.net/7719a1c782a1ba91c031a682a0a2f8658209adbf/2019/10/20/Diagram2.png" align="center">
 _______________________________________________________________________________________________________________
 
+## YAML Code for "Docker Automation Project" through Jenkins:
+
+**Basic Project:**
+
+```diff
+---
+- hosts: all
+  become: true
+  tasks:
+  - name: stop if we have old docker container
+    command: docker stop simple-devops-container
+    ignore_errors: yes
+
+  - name: remove stopped docker container
+    command: docker rm simple-devops-container
+    ignore_errors: yes
+
+  - name: remove current docker image
+    command: docker rmi simple-devops-image
+    ignore_errors: yes
+#    register: result
+#    failed_when:
+#      - result.rc == 0
+#      - '"docker" not in result.stdout'
+
+
+  - name: building docker image
+    command: docker build -t simple-devops-image .
+    args:
+      chdir: /opt/docker
+
+  - name: creating docker image
+    command: docker run -d --name simple-devops-container -p 8080:8080 simple-devops-image
+```
+
+**Creating Docker Container:**
+
+```diff
+# Option-1 : Createting docker container using command module 
+---
+- hosts: all
+  become: true
+
+  tasks:
+  - name: creating docker image using docker command
+    command: docker run -d --name simple-devops-container -p 8080:8080 simple-devops-image
+	
+# option-2 : creating docker container using docker_container module 	
+#  tasks:
+#  - name: create simple-devops-container
+#    docker_container:
+#      name: simple-devops-container
+#      image: simple-devops-image
+#      state: present
+#      recreate: yes
+#      ports:
+#        - "8080:8080"
+```
+
+**Creating Docker Image:**
+
+```diff
+# Option-1 : Createting docker image using command module 
+---
+- hosts: all
+  become: true
+  tasks:
+  - name: building docker image
+    command: docker build -t simple-devops-image .
+    args:
+      chdir: /opt/docker
+
+# option-2 : creating docker image using docker_image module 
+
+#  tasks:
+#  - name: building docker image
+#    docker_image:
+#      build:
+#        path: /opt/docker
+#      name: simple-devops-image
+#     tag: v1
+#     source: build
+```
+
+## Jenkins Integration:
 
 **JOB-1**
 If Developer pushes to dev branch then Jenkins will fetch from dev and deploy on dev-docker environment.
@@ -323,87 +408,3 @@ Thus, the Job has been setup. To Trigger the Build, the **QAT** would run the fo
 e.g. `curl --user "admin:admin" http://192.123.32.2932:8080/job/Merge-test/build?token=redhat`
 
 So, after merging, the **lwtest** Job is again fired, so that the updated code can be downloaded in the Server system to run in the web-server.
-
-## YAML Code for "Docker Automation Project" through Jenkins:
-
-**Basic Project:**
-
-```diff
----
-- hosts: all
-  become: true
-  tasks:
-  - name: stop if we have old docker container
-    command: docker stop simple-devops-container
-    ignore_errors: yes
-
-  - name: remove stopped docker container
-    command: docker rm simple-devops-container
-    ignore_errors: yes
-
-  - name: remove current docker image
-    command: docker rmi simple-devops-image
-    ignore_errors: yes
-#    register: result
-#    failed_when:
-#      - result.rc == 0
-#      - '"docker" not in result.stdout'
-
-
-  - name: building docker image
-    command: docker build -t simple-devops-image .
-    args:
-      chdir: /opt/docker
-
-  - name: creating docker image
-    command: docker run -d --name simple-devops-container -p 8080:8080 simple-devops-image
-```
-
-**Creating Docker Container:**
-
-```diff
-# Option-1 : Createting docker container using command module 
----
-- hosts: all
-  become: true
-
-  tasks:
-  - name: creating docker image using docker command
-    command: docker run -d --name simple-devops-container -p 8080:8080 simple-devops-image
-	
-# option-2 : creating docker container using docker_container module 	
-#  tasks:
-#  - name: create simple-devops-container
-#    docker_container:
-#      name: simple-devops-container
-#      image: simple-devops-image
-#      state: present
-#      recreate: yes
-#      ports:
-#        - "8080:8080"
-```
-
-**Creating Docker Image:**
-
-```diff
-# Option-1 : Createting docker image using command module 
----
-- hosts: all
-  become: true
-  tasks:
-  - name: building docker image
-    command: docker build -t simple-devops-image .
-    args:
-      chdir: /opt/docker
-
-# option-2 : creating docker image using docker_image module 
-
-#  tasks:
-#  - name: building docker image
-#    docker_image:
-#      build:
-#        path: /opt/docker
-#      name: simple-devops-image
-#     tag: v1
-#     source: build
-```
