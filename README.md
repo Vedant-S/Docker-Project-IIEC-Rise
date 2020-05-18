@@ -161,7 +161,7 @@ This challenge is solved by Jenkins which serves as a middlemen to automate the 
 ________________________________________________________________________________________________________________________________________
 # The Project:
 
-<img src="https://d2908q01vomqb2.cloudfront.net/7719a1c782a1ba91c031a682a0a2f8658209adbf/2019/10/20/Diagram2.png" align="center">
+<img src="https://i1.wp.com/www.docker.com/blog/wp-content/uploads/4fa92c35-5a00-4e7a-929e-e5ae4b99701a-1.jpg?w=1600&ssl=1" align="center">
 ________________________________________________________________________________________________________________________________________
 
 ## YAML Code for "Docker Automation Project" through Jenkins:
@@ -418,6 +418,5 @@ So, after merging, the **lwtest** Job is again fired, so that the updated code c
 
 _________________________________________________________________________________________________________
 
-<img src="https://i1.wp.com/www.docker.com/blog/wp-content/uploads/4fa92c35-5a00-4e7a-929e-e5ae4b99701a-1.jpg?w=1600&ssl=1" align="center">
-
+<img src="https://d2908q01vomqb2.cloudfront.net/7719a1c782a1ba91c031a682a0a2f8658209adbf/2019/10/20/Diagram2.png" align="center">
 _________________________________________________________________________________________________________
