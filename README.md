@@ -78,6 +78,7 @@ ________________________________________________________________________________
 <img src="https://d2908q01vomqb2.cloudfront.net/7719a1c782a1ba91c031a682a0a2f8658209adbf/2019/10/20/Diagram2.png" align="center">
 _______________________________________________________________________________________________________________
 
+
 **JOB-1**
 If Developer pushes to dev branch then Jenkins will fetch from dev and deploy on dev-docker environment.
 
