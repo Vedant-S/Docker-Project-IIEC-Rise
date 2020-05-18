@@ -1,4 +1,4 @@
-# Docker-Project-IIEC-Rise:-
+# Docker-Project-IIEC-Rise
 _________________________________________________________________________________________________________
 
 DevOps is a set of practices that combines software development (Dev) and information-technology operations (Ops) which aims to shorten the systems development life cycle and provide continuous delivery with high software quality. Demand for the development of dependable, functional apps has soared in recent years. In a volatile and highly competitive business environment, the systems created to support, and drive operations are crucial. Naturally, organizations will turn to their in-house development teams to deliver the programs, apps, and utilities on which the business counts to remain relevant."
