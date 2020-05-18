@@ -75,19 +75,18 @@ This challenge is solved by Jenkins which serves as a middlemen to automate the 
 # The Project:
 
 JOB#1
-If Developer push to dev branch then Jenkins will fetch from dev and deploy on dev-docker environment.
+If Developer pushes to dev branch then Jenkins will fetch from dev and deploy on dev-docker environment.
 
 JOB#2
-If Developer push to master branch then Jenkins will fetch from master and deploy on master-docke environment.
+If Developer pushes to master branch then Jenkins will fetch from master and deploy on master-docker environment.
 both dev-docker and master-docker environment are on different docker containers.
 
 JOB#3
-Jenkins will check (test) for the website running in dev-docker environment. If it is running fine then Jenkins will merge the dev branch to master branch and trigger #job 2
+Jenkins will check (test) for the website running in dev-docker environment. If it is running fine then Jenkins will merge the dev branch to master branch and trigger #job 2.
 
 This is the repository where the Project has been uploaded.
 
-
-### 1. Setting up the Development/Host  System
+### 1. Setting up the Development/Host  System:
 
 This is the system in which the developer works. We are considering it to be **Windows**. Here, Git is installed and authenticated. To make this project more realistic, we are going to work on 2 GitHub branches:
 - master
@@ -121,7 +120,7 @@ git push -u origin dev1
 Now, we have setup 2 branches in Github, having some differential codes.
 
 
-### 2. Setting up the Server System
+### 2. Setting up the Server System:
 
 This is the system where the Web Server will be running. We are going to use Docker to run 2 `httpd` servers, one for deploying the `master` branch and the other for the `dev1` branch. We are going to use RHEL 8 as the Operating System to host the Docker containers.<br>
 
@@ -141,7 +140,7 @@ The codes downloaded from **GitHub** by **Jenkins** would be placed in these fol
 
 Now, lets configure Jenkins to do all those tasks.
 
-### 3. Configuring Jenkins
+### 3. Configuring Jenkins:
 
 Lets start the Jenkins process from RHEL 8 by the command: `systemctl start jenkins`<br>
 Now, on visiting the port **8080**, we can see the Jenkins Control Panel running.
@@ -152,7 +151,7 @@ After getting the IP Address, from any browser of the **Host System**, we can di
 for e.g. `http://192.123.32.2932:8080` <br>
 After logging in with both the username and password as `admin`, we come to the Jobs List page. Here we can see the Jobs we have submitted to be performed.
 
-#### 3.1. Task-1 : Automatic Code Download 
+#### 3.1. Task-1 : Automatic Code Download:
 
 For now, we have to create new Jobs for downloading the latest codes from **both** the branches of Github separately, to the Server system, for being deployed on the Web-server.<br>
 i.e. The `master` branch should be downloaded in the `lwtest` folder and the `dev1` branch would be downloaded in the `lwtestdev` folder.
@@ -175,7 +174,7 @@ On coming back to the Job List page, we can see the **Job** is being built. If t
 Till now, we have successfully downloaded the codes from both the branches of GitHub to our Server System automatically.
 
 
-#### 3.2. Task-2 : Automatically Starting the Docker containers
+#### 3.2. Task-2 : Automatically Starting the Docker containers:
 
 
 Next, we create another Job for starting the docker containers once the codes have been copied into the `lwtest` and `lwtestdev` folders.
@@ -210,7 +209,7 @@ These 2 Jobs would automatically run just after the codes are updated in the res
 Thus we have successfully set up a **CI/CD pipeline** where once the developer pushes the code on GitHub, **Jenkins** would automatically download the codes and start the **Docker containers** to run the Web-Server.
 
 
-#### 3.3. Task-3 : Merging the `dev1` branch with `master` by QAT
+#### 3.3. Task-3 : Merging the `dev1` branch with `master` by QAT:
 
 Finally, this is the task of the **Quality Assurance Team**. When the team certifies that the `dev1` branch is working fine, they can merge it with the `master` branch using **Remote Build Triggers**.
 
