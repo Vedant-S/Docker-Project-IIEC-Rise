@@ -416,4 +416,8 @@ e.g. `curl --user "admin:admin" http://192.123.32.2932:8080/job/Merge-test/build
 
 So, after merging, the **lwtest** Job is again fired, so that the updated code can be downloaded in the Server system to run in the web-server.
 
+_________________________________________________________________________________________________________
+
 <img src="https://i1.wp.com/www.docker.com/blog/wp-content/uploads/4fa92c35-5a00-4e7a-929e-e5ae4b99701a-1.jpg?w=1600&ssl=1" align="center">
+
+_________________________________________________________________________________________________________
