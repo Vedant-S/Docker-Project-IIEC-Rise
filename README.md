@@ -1,4 +1,4 @@
-# Docker-Project-IIEC-Rise
+# Docker-Project-IIEC-Rise:-
 _________________________________________________________________________________________________________
 
 DevOps is a set of practices that combines software development (Dev) and information-technology operations (Ops) which aims to shorten the systems development life cycle and provide continuous delivery with high software quality. Demand for the development of dependable, functional apps has soared in recent years. In a volatile and highly competitive business environment, the systems created to support, and drive operations are crucial. Naturally, organizations will turn to their in-house development teams to deliver the programs, apps, and utilities on which the business counts to remain relevant."
@@ -19,27 +19,6 @@ Docker is a set of platform as a service (PaaS) products that uses OS-level virt
 **_'Jenkins to the rescue!'_**
 
 As a Continuous Integration tool, Jenkins allows seamless, ongoing development, testing, and deployment of newly created code. Continuous Integration is a process wherein developers commit changes to source code from a shared repository, and all the changes to the source code are built continuously. This can occur multiple times daily. Each commit is continuously monitored by the CI Server, increasing the efficiency of code builds and verification. This removes the testers' burdens, permitting quicker integration and fewer wasted resources.
-
-**Jenkins Features**
-
-####    Easy Installation:
-    Jenkins is a platform-agnostic, self-contained Java-based program, ready to run with packages for Windows, Mac OS, and Unix-like operating systems.
------------------------------------------------------------------------------------------------------------
-####    Easy Configuration:
-    Jenkins is easily set up and configured using its web interface, featuring error checks and a built-in help function.
------------------------------------------------------------------------------------------------------------
-####    Available Plugins:
-    There are hundreds of plugins available in the Update Center, integrating with every tool in the CI and CD toolchain.
------------------------------------------------------------------------------------------------------------
-####    Extensible:
-    Jenkins can be extended by means of its plugin architecture, providing nearly endless possibilities for what it can do.
------------------------------------------------------------------------------------------------------------
-####    Easy Distribution:
-    Jenkins can easily distribute work across multiple machines for faster builds, tests, and deployments across multiple platforms.
------------------------------------------------------------------------------------------------------------
-####    Free Open Source:
-    Jenkins is an open source resource backed by heavy community support.
------------------------------------------------------------------------------------------------------------
 
 ____________________________________________________________________________________________________________________________________
 # Implementation and Understanding:
