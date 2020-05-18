@@ -260,7 +260,7 @@ Jenkins will check (test) for the website running in dev-docker environment. If 
 
 This is the repository where the Project has been uploaded.
 
-### 1. Setting up the Development/Host  System:
+### 1. Setting up the Host  System:
 
 This is the system in which the developer works. We are considering it to be **Windows**. Here, Git is installed and authenticated. To make this project more realistic, we are going to work on 2 GitHub branches:
 - master
