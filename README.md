@@ -16,7 +16,7 @@ Docker is a set of platform as a service (PaaS) products that uses OS-level virt
     They allow running multiple workloads on the same OS, which allows efficient use of resources.
     Since they mostly include application-level dependencies, they are pretty lightweight and efficient. A machine where you can run 2 VMs, you can run tens of Docker containers without any trouble, which means fewer resources = less cost = less maintenance = happy people.
     
-**Docker Commands:**
+## Docker Commands:
 
     1. how to search a docker image in hub.docker.com
 
@@ -74,7 +74,8 @@ t - Terminal
 
 `docker exec -it <container_Name> /bin/bash`
 
-**Docker Install Apache Webserver - Dockerfile**
+
+## Docker Install Apache Webserver - Dockerfile
 
 Code to be written within Dockerfile:
 
@@ -103,6 +104,7 @@ CMD ["/usr/sbin/apache2", "-D", "FOREGROUND"]
 **_'Jenkins to the rescue!'_**
 
 As a Continuous Integration tool, Jenkins allows seamless, ongoing development, testing, and deployment of newly created code. Continuous Integration is a process wherein developers commit changes to source code from a shared repository, and all the changes to the source code are built continuously. This can occur multiple times daily. Each commit is continuously monitored by the CI Server, increasing the efficiency of code builds and verification. This removes the testers' burdens, permitting quicker integration and fewer wasted resources.
+
 
 ____________________________________________________________________________________________________________________________________
 # Implementation and Understanding:
@@ -321,3 +323,36 @@ Thus, the Job has been setup. To Trigger the Build, the **QAT** would run the fo
 e.g. `curl --user "admin:admin" http://192.123.32.2932:8080/job/Merge-test/build?token=redhat`
 
 So, after merging, the **lwtest** Job is again fired, so that the updated code can be downloaded in the Server system to run in the web-server.
+
+## YAML Code for "Docker Automation Project" through Jenkins:
+
+```diff
+---
+- hosts: all
+  become: true
+  tasks:
+  - name: stop if we have old docker container
+    command: docker stop simple-devops-container
+    ignore_errors: yes
+
+  - name: remove stopped docker container
+    command: docker rm simple-devops-container
+    ignore_errors: yes
+
+  - name: remove current docker image
+    command: docker rmi simple-devops-image
+    ignore_errors: yes
+#    register: result
+#    failed_when:
+#      - result.rc == 0
+#      - '"docker" not in result.stdout'
+
+
+  - name: building docker image
+    command: docker build -t simple-devops-image .
+    args:
+      chdir: /opt/docker
+
+  - name: creating docker image
+    command: docker run -d --name simple-devops-container -p 8080:8080 simple-devops-image
+    ```
