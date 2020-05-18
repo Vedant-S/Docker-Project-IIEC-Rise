@@ -16,7 +16,7 @@ Docker is a set of platform as a service (PaaS) products that uses OS-level virt
     They allow running multiple workloads on the same OS, which allows efficient use of resources.
     Since they mostly include application-level dependencies, they are pretty lightweight and efficient. A machine where you can run 2 VMs, you can run tens of Docker containers without any trouble, which means fewer resources = less cost = less maintenance = happy people.
     
-Docker Commands:
+**Docker Commands:**
 
     1. how to search a docker image in hub.docker.com
 
@@ -74,7 +74,29 @@ t - Terminal
 
 `docker exec -it <container_Name> /bin/bash`
 
+**Docker Install Apache Webserver - Dockerfile**
 
+Code to be written within Dockerfile:
+
+```diff
+FROM ubuntu:12.04
+
+MAINTAINER Vedant Shrivastava vedantshrivastava466@gmail.com
+
+LABEL version="1.1.0" \
+      app_name="Docker Training application" \
+	  release_date="1-January-2020"
+RUN apt-get update && apt-get install -y apache2 && apt-get clean
+
+ENV APACHE_RUN_USER www-data
+ENV APACHE_RUN_GROUP www-data
+ENV APACHE_LOG_DIR /var/log/apache2
+
+EXPOSE 80
+
+COPY index.html /var/www/html
+CMD ["/usr/sbin/apache2", "-D", "FOREGROUND"]
+```
 
 ## Jenkins:
 
