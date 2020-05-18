@@ -2,6 +2,7 @@
 
 ![CI/CD_Process](https://hackernoon.com/hn-images/1*1kUhczYDfpkWXSFt0mI2dA.png)
 _________________________________________________________________________________________________________
+## Introduction:
 
 DevOps is a set of practices that combines software development (Dev) and information-technology operations (Ops) which aims to shorten the systems development life cycle and provide continuous delivery with high software quality. Demand for the development of dependable, functional apps has soared in recent years. In a volatile and highly competitive business environment, the systems created to support, and drive operations are crucial. Naturally, organizations will turn to their in-house development teams to deliver the programs, apps, and utilities on which the business counts to remain relevant."
 _______________________________________________________________________________________________________________
@@ -15,7 +16,7 @@ Docker is a set of platform as a service (PaaS) products that uses OS-level virt
     They don’t need to have a full-blown OS inside.
     They allow running multiple workloads on the same OS, which allows efficient use of resources.
     Since they mostly include application-level dependencies, they are pretty lightweight and efficient. A machine where you can run 2 VMs, you can run tens of Docker containers without any trouble, which means fewer resources = less cost = less maintenance = happy people.
-    
+_______________________________________________________________________________________________________________
 ## Docker Commands:
 
     1. how to search a docker image in hub.docker.com
@@ -74,7 +75,7 @@ t - Terminal
 
 `docker exec -it <container_Name> /bin/bash`
 
-
+_______________________________________________________________________________________________________________
 ## Docker Install Apache Webserver - Dockerfile
 
 Code to be written within Dockerfile:
@@ -98,7 +99,7 @@ EXPOSE 80
 COPY index.html /var/www/html
 CMD ["/usr/sbin/apache2", "-D", "FOREGROUND"]
 ```
-
+_______________________________________________________________________________________________________________
 ## Jenkins:
 
 **_'Jenkins to the rescue!'_**
@@ -142,6 +143,7 @@ ________________________________________________________________________________
 
 * Providing the root access to Jenkins using sudo command, after editing /etc/sudoers file, instead of the setfacl Access Control Listing command. 
 
+_______________________________________________________________________________________________________________
 # The Architecture:
 
 1. The DEVELOPER & Local Workspace:
@@ -197,6 +199,7 @@ ________________________________________________________________________________
     command: docker run -d --name simple-devops-container -p 8080:8080 simple-devops-image
 ```
 
+_______________________________________________________________________________________________________________
 **Creating Docker Container:**
 
 ```diff
@@ -221,6 +224,7 @@ ________________________________________________________________________________
 #        - "8080:8080"
 ```
 
+_______________________________________________________________________________________________________________
 **Creating Docker Image:**
 
 ```diff
@@ -246,6 +250,7 @@ ________________________________________________________________________________
 #     source: build
 ```
 
+_______________________________________________________________________________________________________________
 ## Jenkins Integration:
 
 **JOB-1**
