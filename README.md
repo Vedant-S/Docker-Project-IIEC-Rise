@@ -326,6 +326,8 @@ So, after merging, the **lwtest** Job is again fired, so that the updated code c
 
 ## YAML Code for "Docker Automation Project" through Jenkins:
 
+**Basic Project:**
+
 ```diff
 ---
 - hosts: all
@@ -355,4 +357,53 @@ So, after merging, the **lwtest** Job is again fired, so that the updated code c
 
   - name: creating docker image
     command: docker run -d --name simple-devops-container -p 8080:8080 simple-devops-image
+```
+
+**Creating Docker Container:**
+
+```diff
+# Option-1 : Createting docker container using command module 
+---
+- hosts: all
+  become: true
+
+  tasks:
+  - name: creating docker image using docker command
+    command: docker run -d --name simple-devops-container -p 8080:8080 simple-devops-image
+	
+# option-2 : creating docker container using docker_container module 	
+#  tasks:
+#  - name: create simple-devops-container
+#    docker_container:
+#      name: simple-devops-container
+#      image: simple-devops-image
+#      state: present
+#      recreate: yes
+#      ports:
+#        - "8080:8080"
+```
+
+**Creating Docker Image:**
+
+```diff
+# Option-1 : Createting docker image using command module 
+---
+- hosts: all
+  become: true
+  tasks:
+  - name: building docker image
+    command: docker build -t simple-devops-image .
+    args:
+      chdir: /opt/docker
+
+# option-2 : creating docker image using docker_image module 
+
+#  tasks:
+#  - name: building docker image
+#    docker_image:
+#      build:
+#        path: /opt/docker
+#      name: simple-devops-image
+#     tag: v1
+#     source: build
 ```
