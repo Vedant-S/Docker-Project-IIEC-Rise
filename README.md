@@ -68,7 +68,7 @@ t - Terminal
 
     11. Remove a container
 
-``docker rm <container_id>`
+`docker rm <container_id>`
 
     12. login to a docker container
 
