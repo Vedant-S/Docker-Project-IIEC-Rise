@@ -1,6 +1,6 @@
 # Docker-Project-IIEC-Rise
 
-![CI/CD_Process](https://hackernoon.com/hn-images/1*1kUhczYDfpkWXSFt0mI2dA.png)
+<img src="https://www.simplilearn.com/ice9/free_resources_article_thumb/docker_tutorial_basic_concepts_verview.jpg" align="center">
 _________________________________________________________________________________________________________
 ## Introduction:
 
@@ -16,7 +16,11 @@ Docker is a set of platform as a service (PaaS) products that uses OS-level virt
     They don’t need to have a full-blown OS inside.
     They allow running multiple workloads on the same OS, which allows efficient use of resources.
     Since they mostly include application-level dependencies, they are pretty lightweight and efficient. A machine where you can run 2 VMs, you can run tens of Docker containers without any trouble, which means fewer resources = less cost = less maintenance = happy people.
+
 _______________________________________________________________________________________________________________
+![CI/CD_Process](https://hackernoon.com/hn-images/1*1kUhczYDfpkWXSFt0mI2dA.png)
+_______________________________________________________________________________________________________________
+
 ## Docker Commands:
 
     1. how to search a docker image in hub.docker.com
