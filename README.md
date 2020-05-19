@@ -1,6 +1,6 @@
 # Docker-Project-IIEC-Rise
 
-<img src="https://www.simplilearn.com/ice9/free_resources_article_thumb/docker_tutorial_basic_concepts_verview.jpg" align="center">
+<img src="https://www.threatstack.com/wp-content/uploads/2017/06/docker-cloud-twitter-card.png" align="center">
 
 _________________________________________________________________________________________________________
 
