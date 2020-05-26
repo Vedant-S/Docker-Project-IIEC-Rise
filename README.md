@@ -422,6 +422,11 @@ e.g. `curl --user "admin:admin" http://192.123.32.2932:8080/job/Merge-test/build
 
 So, after merging, the **lwtest** Job is again fired, so that the updated code can be downloaded in the Server system to run in the web-server.
 
+### Author:
+----------------------------------
+```diff
++ Vedant Shrivastava | vedantshrivastava466@gmail.com
+```
 _________________________________________________________________________________________________________
 
 <img src="https://d2908q01vomqb2.cloudfront.net/7719a1c782a1ba91c031a682a0a2f8658209adbf/2019/10/20/Diagram2.png" align="center">
